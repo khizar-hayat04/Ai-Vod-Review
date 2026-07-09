@@ -1,0 +1,38 @@
+.skeleton-player {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+}
+
+.skeleton-video-area {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 60vh;
+  margin-bottom: 1rem;
+}
+
+.skeleton-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skeleton-btn { width: 40px; height: 32px; }
+.skeleton-seek { flex: 1; height: 8px; }
+.skeleton-time { width: 60px; height: 16px; }
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface-alt) 0%,
+    #2a2a2a 50%,
+    var(--bg-surface-alt) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

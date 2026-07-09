@@ -1,0 +1,9 @@
+# ninja log v7
+24	3825	8039551293426627	Ai-Vod-Review_autogen/timestamp	90a5d92474306fd9
+24	3825	8039551293426627	Ai-Vod-Review_autogen/mocs_compilation.cpp	90a5d92474306fd9
+24	3825	8039551293426627	C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/Ai-Vod-Review_autogen/timestamp	90a5d92474306fd9
+24	3825	8039551293426627	C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/Ai-Vod-Review_autogen/mocs_compilation.cpp	90a5d92474306fd9
+3847	12881	8039551296636700	CMakeFiles/Ai-Vod-Review.dir/Ai-Vod-Review_autogen/mocs_compilation.cpp.obj	8b30814bbd9f45bf
+3860	13097	8039551296766670	CMakeFiles/Ai-Vod-Review.dir/main.cpp.obj	ba30e5a90fb88506
+3870	13158	8039551296866642	CMakeFiles/Ai-Vod-Review.dir/mainwindow.cpp.obj	a299ddcf3e06f2e8
+13159	13964	8039551389756629	Ai-Vod-Review.exe	542a5cff62febe17

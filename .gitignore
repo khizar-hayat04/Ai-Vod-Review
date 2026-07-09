@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# uploaded session videos
+/uploads/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo

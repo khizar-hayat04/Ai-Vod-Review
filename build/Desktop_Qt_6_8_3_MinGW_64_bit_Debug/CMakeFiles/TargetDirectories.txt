@@ -1,0 +1,9 @@
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/Ai-Vod-Review.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/edit_cache.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/list_install_components.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/install.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/install/local.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/install/strip.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/Ai-Vod-Review_autogen_timestamp_deps.dir
+C:/Users/MyPC/Documents/Ai-Vod-Review/build/Desktop_Qt_6_8_3_MinGW_64_bit_Debug/CMakeFiles/Ai-Vod-Review_autogen.dir

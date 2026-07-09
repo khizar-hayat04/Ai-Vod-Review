@@ -1,0 +1,134 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.host-shell {
+  width: 100%;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 6vw, 5rem);
+}
+
+.brand-header {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.subtext {
+  color: var(--text-secondary);
+  max-width: 65ch;
+  margin-bottom: 2rem;
+}
+
+.host-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+}
+
+.cta-button {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  padding: clamp(0.85rem, 1.2vw, 1.1rem) clamp(1.75rem, 3vw, 2.5rem);
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: var(--text-secondary);
+}
+
+.share-block {
+  margin-top: 1.5rem;
+}
+
+.share-block label {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.share-block input {
+  width: 100%;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 0.9rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.waiting-block, .player-block {
+  margin-top: 1.5rem;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.session-info-block {
+  margin-top: 1.5rem;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  padding: 1.25rem;
+}
+
+.session-info-block h4 {
+  font-family: var(--font-heading);
+  margin: 0 0 1rem;
+}
+
+.session-info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+}
+
+.session-info-row:last-child {
+  border-bottom: none;
+}
+
+.mono-value {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-align: right;
+  word-break: break-all;
+}
+
+video {
+  max-height: 70vh;
+  display: block;
+}

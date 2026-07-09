@@ -1,0 +1,107 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.landing-shell {
+  width: 100%;
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
+}
+
+.brand-header {
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.brand-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  letter-spacing: 0.08em;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+}
+
+.hero-subtext {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.3vw, 1.3rem);
+  max-width: 65ch;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.role-select {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.role-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(2rem, 3vw, 3rem);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  min-height: clamp(180px, 20vw, 260px);
+  justify-content: flex-end;
+}
+
+.role-card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface-alt);
+}
+
+.role-index {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.role-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  letter-spacing: 0.05em;
+}
+
+.role-desc {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+}
+
+.hud-frame::before, .hud-frame::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--text-primary);
+  border-style: solid;
+  opacity: 0.7;
+}
+.hud-frame::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.hud-frame::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}

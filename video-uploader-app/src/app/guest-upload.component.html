@@ -1,0 +1,52 @@
+<div class="guest-shell">
+  <header class="brand-header">AI-VOD-REVIEW</header>
+
+  <section class="page-hero">
+    <p class="eyebrow">GUEST VIEW</p>
+    <h1>Upload Your Gameplay</h1>
+  </section>
+
+  <section class="guest-panel">
+    <ng-container *ngIf="uploadState !== 'done'">
+      <div class="upload-row">
+        <input #fileInput type="file" accept="video/*"
+               (change)="onFileSelected($event)"
+               [disabled]="uploadState === 'uploading'" />
+        <button type="button" class="cta-button" (click)="upload()"
+                [disabled]="!selectedFile || uploadState === 'uploading'">
+          Upload
+        </button>
+      </div>
+
+      <div *ngIf="uploadState === 'uploading'" class="upload-progress-block">
+        <p class="status-label">Uploading &mdash; {{ uploadProgress }}%</p>
+        <div class="progress-track">
+          <div class="progress-fill" [style.width.%]="uploadProgress"></div>
+        </div>
+        <button type="button" class="secondary-button" (click)="cancelUpload()">
+          Cancel
+        </button>
+      </div>
+
+      <p *ngIf="uploadState === 'error'" class="error-message">{{ errorMessage }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="uploadState === 'done'">
+      <div class="status-row">
+        <span class="status-dot is-active"></span>
+        <span class="status-label">Upload complete</span>
+      </div>
+
+      <div *ngIf="isNewSessionMode" class="host-link-block">
+        <p>Share this link with your coach:</p>
+        <div class="share-block">
+          <input type="text" [value]="resultingHostLink" readonly />
+        </div>
+      </div>
+
+      <p *ngIf="!isNewSessionMode" class="confirmation-text">
+        You may contact the host now.
+      </p>
+    </ng-container>
+  </section>
+</div>

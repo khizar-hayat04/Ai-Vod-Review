@@ -1,0 +1,104 @@
+<div class="video-stage" #videoStage>
+  <video #videoEl
+    [src]="videoUrl"
+    (play)="onPlay()" (pause)="onPause()"
+    (timeupdate)="onTimeUpdate()" (loadedmetadata)="onLoadedMetadata()"
+    (click)="togglePlay()">
+  </video>
+  <canvas #canvasEl class="draw-canvas" [class.draw-active]="isDrawMode"
+    (pointerdown)="onPointerDown($event)" (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp()" (pointerleave)="onPointerUp()">
+  </canvas>
+
+  <div class="controls-bar">
+    <div class="controls-left">
+      <button (click)="togglePlay()">{{ isPlaying ? '&#10074;&#10074;' : '&#9654;' }}</button>
+      <button class="icon-button" (click)="stepFrame(-1)" title="Previous frame" aria-label="Previous frame">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/>
+        </svg>
+      </button>
+      <button class="icon-button" (click)="stepFrame(1)" title="Next frame" aria-label="Next frame">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+        </svg>
+      </button>
+
+      <div class="seek-wrapper">
+        <input type="range" min="0" [max]="duration" step="0.01"
+               [value]="currentTime" (input)="onSeekBarInput($event)" />
+        <div class="flag-marks">
+          <span *ngFor="let flag of flags" class="flag-mark"
+                [style.left.%]="flagPosition(flag.timestamp)"></span>
+        </div>
+      </div>
+
+      <span class="time-label">{{ formatTime(currentTime) }} / {{ formatTime(duration) }}</span>
+
+      <select [ngModel]="playbackRate" (ngModelChange)="setPlaybackRate($event)">
+        <option [ngValue]="0.25">0.25x</option>
+        <option [ngValue]="0.5">0.5x</option>
+        <option [ngValue]="1">1x</option>
+        <option [ngValue]="1.5">1.5x</option>
+        <option [ngValue]="2">2x</option>
+      </select>
+
+      <div class="draw-menu-wrapper" #drawMenuWrapper>
+        <button (click)="toggleDrawMenu()" [class.active]="isDrawMode">Draw</button>
+
+        <div class="draw-popup" *ngIf="showDrawMenu">
+          <button (click)="undo()" [disabled]="strokes.length === 0">Undo</button>
+          <button (click)="redo()" [disabled]="redoStack.length === 0">Redo</button>
+          <button (click)="clearDrawing()">Clear</button>
+
+          <div class="symbols-wrapper">
+            <button (click)="toggleSymbolsMenu()">Symbols</button>
+            <div class="symbols-flyout" *ngIf="showSymbolsMenu">
+              <button (click)="selectTool('pen')" [class.active]="currentTool === 'pen'" title="Freehand">&#9998;&#65038;</button>
+              <button (click)="selectTool('circle')" [class.active]="currentTool === 'circle'" title="Circle">&#9675;</button>
+              <button (click)="selectTool('arrow')" [class.active]="currentTool === 'arrow'" title="Arrow">&#8599;&#65038;</button>
+              <button (click)="selectTool('square')" [class.active]="currentTool === 'square'" title="Square">&#9633;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button (click)="addFlag()" title="Flag this timestamp">Flag</button>
+    </div>
+
+    <div class="controls-right">
+      <button class="icon-button" (click)="toggleFullscreen()"
+              [attr.aria-label]="isFullscreen ? 'Exit fullscreen' : 'Enter fullscreen'">
+        <svg *ngIf="!isFullscreen" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        <svg *ngIf="isFullscreen" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="side-panels">
+  <div class="notes-panel">
+    <h4>Notes</h4>
+    <div class="note-input">
+      <input type="text" [(ngModel)]="newNoteText" placeholder="Add a note..." (keyup.enter)="addNote()" />
+      <button (click)="addNote()">Add</button>
+    </div>
+    <ul class="item-list">
+      <li *ngFor="let note of notes">
+        <button class="timestamp-jump" (click)="seekTo(note.timestamp)">{{ formatTime(note.timestamp) }}</button>
+        <span>{{ note.text }}</span>
+        <button class="remove-item" (click)="removeNote(note.id)">&#10005;</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flags-panel">
+    <h4>Flags</h4>
+    <ul class="item-list">
+      <li *ngFor="let flag of flags">
+        <button class="timestamp-jump" (click)="seekTo(flag.timestamp)">{{ formatTime(flag.timestamp) }}</button>
+        <button class="remove-item" (click)="removeFlag(flag.id)">&#10005;</button>
+      </li>
+    </ul>
+  </div>
+</div>

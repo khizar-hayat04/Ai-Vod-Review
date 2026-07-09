@@ -1,0 +1,54 @@
+<div class="host-shell">
+  <header class="brand-header">AI-VOD-REVIEW</header>
+
+  <section class="page-hero">
+    <p class="eyebrow">HOST VIEW</p>
+    <h1>Collaborative Video Review</h1>
+    <p class="subtext">
+      Generate a session link, share it with a guest, and keep this page
+      open while the backend waits for uploads.
+    </p>
+  </section>
+
+  <section class="host-panel">
+    <ng-container *ngIf="!sessionId">
+      <button type="button" class="cta-button" (click)="createSession()">
+        Create Session
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="sessionId">
+      <div *ngIf="!videoUrl" class="share-block">
+        <label>Share this link</label>
+        <input type="text" [value]="shareLink" readonly />
+      </div>
+
+      <div *ngIf="!videoUrl" class="waiting-block">
+        <div class="status-row">
+          <span class="status-dot is-inactive"></span>
+          <span class="status-label">Waiting for upload</span>
+        </div>
+        <app-video-skeleton></app-video-skeleton>
+      </div>
+
+      <div *ngIf="videoUrl" class="player-block">
+        <app-video-review [videoUrl]="videoUrl"></app-video-review>
+
+        <div class="session-info-block">
+          <h4>Session info</h4>
+          <div class="session-info-row">
+            <span>Session</span>
+            <span class="mono-value">{{ sessionId }}</span>
+          </div>
+          <div class="session-info-row">
+            <span>Status</span>
+            <span class="status-row">
+              <span class="status-dot is-active"></span>
+              <span class="status-label">Video ready</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "ai-vod-review",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "sh dev.sh",
+    "build": "cd video-uploader-app && pnpm exec ng build"
+  }
+}
