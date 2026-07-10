@@ -5,5 +5,8 @@
   "scripts": {
     "dev": "sh dev.sh",
     "build": "pnpm run build"
+  },
+  "devDependencies": {
+    "@angular/cli": "^22.0.6"
   }
 }
