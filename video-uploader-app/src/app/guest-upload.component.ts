@@ -23,7 +23,7 @@ export class GuestUploadComponent implements OnInit, OnDestroy {
   errorMessage = '';
   resultingHostLink = '';
   private uploadSub: Subscription | null = null;
-  private readonly apiBaseUrl = '/api';
+  private readonly apiBaseUrl = 'https://ai-vod-review-backend-1.onrender.com/api';
 
   constructor(
     private route: ActivatedRoute,
